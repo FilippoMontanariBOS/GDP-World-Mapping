@@ -2,10 +2,10 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 df_gdp = pd.read_csv("GDP_data.csv")
-df_gdp_fil = df_gdp[['Country Name', '2022']]
+df_gdp_fil = df_gdp[['Country Name', '2022']].dropna()
 
 df_prec = pd.read_csv("Prec_data.csv")
-df_prec_fil = df_prec[['Country Name', '2022']]
+df_prec_fil = df_prec[['Country Name', '2022']].dropna()
 
 df_prec_gdp = pd.merge(df_prec_fil, df_gdp_fil, on="Country Name", how="inner")
 
@@ -16,7 +16,7 @@ plt.ylabel("GDP per Capita (Current US$)")
 plt.show(block=False)
 
 df_gov = pd.read_csv("Gov_Data.csv")
-df_gov_fil = df_gov[['Country Name', '2022']]
+df_gov_fil = df_gov[['Country Name', '2022']].dropna()
 
 df_gov_gdp = pd.merge(df_gov_fil, df_gdp_fil, on="Country Name", how="inner")
 
@@ -28,7 +28,7 @@ plt.ylabel("GDP per Capita (Current US$)")
 plt.show(block=False)
 
 df_edu = pd.read_csv("Education_data.csv")
-df_edu_fil = df_edu[['Country Name', '2022']]
+df_edu_fil = df_edu[['Country Name', '2022']].dropna()
 
 df_edu_gdp = pd.merge(df_edu_fil, df_gdp_fil, on="Country Name", how="inner")
 

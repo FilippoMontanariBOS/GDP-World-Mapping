@@ -2,10 +2,10 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 df_gdp = pd.read_csv("GDP_data.csv")
-df_gdp_fil = df_gdp[['Country Name', '2022']]
+df_gdp_fil = df_gdp[['Country Name', '2022']].dropna()
 
 df_prec = pd.read_csv("Prec_data.csv")
-df_prec_fil = df_prec[['Country Name', '2022']]
+df_prec_fil = df_prec[['Country Name', '2022']].dropna()
 
 df_prec_gdp = pd.merge(df_prec_fil, df_gdp_fil, on="Country Name", how="inner")
 
